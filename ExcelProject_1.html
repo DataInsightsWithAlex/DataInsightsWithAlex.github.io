@@ -19,8 +19,8 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1><a href="index.html">Excel Project 1</a></h1>
-							<p>An easy to use Dashboard</p>
+							<h1><a href="index.html">Netflix Project</a></h1>
+							<p>The raw data is from <a href="https://www.kaggle.com/datasets/ariyoomotade/netflix-data-cleaning-analysis-and-visualization">Kaggle</a></p>
 						</div>
 
 					<!-- Nav -->
@@ -66,42 +66,204 @@
 							<div id="content">
 								<article class="box post">
 									<header class="style1">
-										<h2>Lorem ipsum dolor sit amet magna egestas<br class="mobile-hide" />
-										morbi bibendum sed malesuada</h2>
-										<p>Tempus feugiat veroeros sed nullam dolore</p>
+										<h2>All the steps taken:</h2>
+											<p>Get Data, Clean Data, Remove Duplicates, Remove Nulls, Add Columns, Create Pivots, Create Dashboard </p>
 									</header>
 									<a href="#" class="image featured">
-										<img src="images/pic01.jpg" alt="" />
+										<img src="images/netflix-bnw.png" height="400" alt="" />
 									</a>
-									<p>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-									odio eleifend. Duis commodo fringilla commodo. Aliquam erat volutpat. Vestibulum
-									facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-									tempus euismod. Vestibulum ante ipsum primis in faucibus.</p>
-									<p>Phasellus nisl nisl, varius id porttitor sed, pellentesque ac orci. Pellentesque
-									habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi
-									bibendum justo sed mauris vehicula malesuada aliquam elit imperdiet. Aliquam eu nibh
-									lorem, eget gravida mi. Duis odio diam, luctus et vulputate vitae, vehicula ac dolor.
-									Pellentesque at urna eget tellus lobortis ultrices sed non erat. Donec eget erat non
-									magna volutpat malesuada quis eget eros. Nullam sodales cursus sapien, id consequat
-									leo suscipit ut. Praesent id turpis vitae turpis pretium ultricies. Vestibulum sit
-									amet risus elit.</p>
-									<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-									ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-									eget quam rutrum bibendum. Proin pellentesque diam non ligula commodo tempor. Vivamus
-									eget urna nibh. Curabitur non fringilla nisl. Donec accumsan interdum nisi, quis
-									tincidunt felis sagittis eget. Donec elementum ligula dignissim sem pulvinar non semper
-									odio eleifend. Duis commodo fringilla commodo. Aliquam erat volutpat. Vestibulum
-									facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-									tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-									posuere cubilia.</p>
-									<p>Phasellus nisl nisl, varius id porttitor sed, pellentesque ac orci. Pellentesque
-									habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi
-									bibendum justo sed mauris vehicula malesuada aliquam elit imperdiet. Aliquam eu nibh
-									lorem, eget gravida mi. Duis odio diam, luctus et vulputate vitae, vehicula ac dolor.
-									Pellentesque at urna eget tellus lobortis ultrices sed non erat. Donec eget erat non
-									magna volutpat malesuada quis eget eros. Nullam sodales cursus sapien, id consequat
-									leo suscipit ut. Praesent id turpis vitae turpis pretium ultricies. Vestibulum sit
-									amet risus elit.</p>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>How to get data in Excel</h2>
+												<img src="Excel Netflix Project/GetDataCSV.png" alt=""/>
+												<br>
+												<br>
+												<p>Let's load the data</p>
+											</section>
+										</div>
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Enter Power Query by clicking the Transform Data button</h2>
+												<img src="Excel Netflix Project/TransformData.png" alt=""/>
+												<p>Here we will clean the data</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>This is how the data looks after we loaded into PQ</h2>
+												<img src="Excel Netflix Project/PQ Load.png" alt=""/>
+												<p>
+													I have the column names and their data types.
+													Power Query automatically detected the data types. I just need to make sure they are as we want them.<br>
+													I can see if there are any errors on the columns.(Please note that currently I am viewing only 1000 rows of data)
+												</p>
+											</section>
+										</div>
+									</div>
+									
+									<hr>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/Column_[type]_LoadMore.png" alt=""/>
+												<p>
+													I know that the column type should have only 2 values (Movie and TV Show). 
+													To be sure we click load more to check the whole data (not only the first 1000 rows)
+												</p>
+											</section>
+										</div>
+
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[type]_FilterOut.png" alt=""/>
+												<br><br><br><br>
+												<p>
+													I remove the unexpected value " William Wyler"													
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+									
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>I move to the next column [title]</h2>
+												<img src="Excel Netflix Project/Column_[title]_RemoveDuplicates.png" alt=""/>
+												<p>
+													I want to make sure I remove the duplicates from this column 
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/Column_[director]_FilterOut.png" alt=""/>
+											
+											</section>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[country]_FilterOut.png" alt=""/>
+												<br><br><br><br>
+											
+											</section>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[year]_FilterOut_Null.png" alt=""/>
+												<br><br><br><br>
+											
+											</section>
+										</div>
+										<p>
+											Columns [country] and [director] have missing information. In this case I will filter out those rows.Column [year] has null values.I will filter out the row.
+										</p>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>I want to add another column with the year when the movie/show was added on Netflix</h2>
+												<img src="Excel Netflix Project/ADDColumn_[year_added].png" alt=""/>
+												<p>
+													I select the colum [date_added]. Next I go to the <i>Add Column</i> tab, then to Date section and select Year.
+													This will return the year from the date column. 
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/CloseAndLoad.png" alt=""/>
+											</section>
+										</div>
+
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/DataHasBeenLoaded.png" alt=""/>
+											</section>
+										</div>
+										<p>
+											After I finished with the cleaning of the data, it is time to load it into Excel.
+											<i>Home</i> tab -> <i>Close & Load</i>
+
+											<br>We can verify that in excel , going to the <i>Data</i> tab and selecting <i>Queries & Connections</i>
+										</p>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>Creating the required Pivots</h2>
+												<img src="Excel Netflix Project/Create_Pivots_I.png" alt=""/>
+												<p>
+													On a different sheet I create the required Pivots.
+													
+													After finishing, I move on to the last step, which is the creation of the Dashboard
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>Dashboard</h2>
+												<img src="Excel Netflix Project/Dashboard_I.png" alt=""/>
+												<p>
+													The upper part of the Dashboard has static data. It will update only after a refresh and if only the raw data changes.
+													We are presenting data based on different groupings (by year_added, by rating, by duration, by categories, by countries and by seasons)
+												</p>
+											</section>
+										</div>
+									</div>
+
+									div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<img src="Excel Netflix Project/Dashboard_II.png" alt=""/>
+												<p>
+													This last part of the report lets the user of the Dashboard search for movies (based on 4 diferent slicers)
+													<br>
+													The movies are shown here based on a OFFSET formula in a cell. <i>=OFFSET(Pivots!AA3,,,COUNTA(Pivots!AA:AA)-2,1)</i>
+												</p>
+											</section>
+										</div>
+									</div>
+
 								</article>
 							</div>
 
