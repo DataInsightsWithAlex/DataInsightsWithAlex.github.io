@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>No Sidebar - Escape Velocity by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper">
+
+					<!-- Logo -->
+						<div id="logo">
+							<h1><a href="index.html">Netflix Project</a></h1>
+							<p>The raw data is from <a href="https://www.kaggle.com/datasets/ariyoomotade/netflix-data-cleaning-analysis-and-visualization">Kaggle</a></p>
+						</div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li class="current"> <a href="Excel.html">Excel Projects</a></li>
+							<li>
+								<a href="#">Power BI Projects</a>
+							</li>
+							<li>
+								<a href="#">SQL Projects</a>
+							</li>
+							<li>
+								<a href="#">About Me</a>
+							</li>
+							<!--<li><a href="ExcelProjects.html">Project 3</a></li>-->
+						</ul>
+					</nav>
+
+				</section>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style2">
+					<div class="title">Details</div>
+					<div class="container">
+
+						<!-- Content -->
+							<div id="content">
+								<article class="box post">
+									<header class="style1">
+										<h2>All the steps taken:</h2>
+											<p>Get Data, Clean Data, Remove Duplicates, Remove Nulls, Add Columns, Create Pivots, Create Dashboard </p>
+									</header>
+									<a href="#" class="image featured">
+										<img src="images/netflix-bnw.png" height="400" alt="" />
+									</a>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>How to get data in Excel</h2>
+												<img src="Excel Netflix Project/GetDataCSV.png" alt=""/>
+												<br>
+												<br>
+												<p>Let's load the data</p>
+											</section>
+										</div>
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Enter Power Query by clicking the Transform Data button</h2>
+												<img src="Excel Netflix Project/TransformData.png" alt=""/>
+												<p>Here we will clean the data</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>This is how the data looks after we loaded into PQ</h2>
+												<img src="Excel Netflix Project/PQ Load.png" alt=""/>
+												<p>
+													I have the column names and their data types.
+													Power Query automatically detected the data types. I just need to make sure they are as we want them.<br>
+													I can see if there are any errors on the columns.(Please note that currently I am viewing only 1000 rows of data)
+												</p>
+											</section>
+										</div>
+									</div>
+									
+									<hr>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/Column_[type]_LoadMore.png" alt=""/>
+												<p>
+													I know that the column type should have only 2 values (Movie and TV Show). 
+													To be sure we click load more to check the whole data (not only the first 1000 rows)
+												</p>
+											</section>
+										</div>
+
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[type]_FilterOut.png" alt=""/>
+												<br><br><br><br>
+												<p>
+													I remove the unexpected value " William Wyler"													
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+									
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>I move to the next column [title]</h2>
+												<img src="Excel Netflix Project/Column_[title]_RemoveDuplicates.png" alt=""/>
+												<p>
+													I want to make sure I remove the duplicates from this column 
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/Column_[director]_FilterOut.png" alt=""/>
+											
+											</section>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[country]_FilterOut.png" alt=""/>
+												<br><br><br><br>
+											
+											</section>
+										</div>
+
+										<div class="col-4 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/Column_[year]_FilterOut_Null.png" alt=""/>
+												<br><br><br><br>
+											
+											</section>
+										</div>
+										<p>
+											Columns [country] and [director] have missing information. In this case I will filter out those rows.Column [year] has null values.I will filter out the row.
+										</p>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>I want to add another column with the year when the movie/show was added on Netflix</h2>
+												<img src="Excel Netflix Project/ADDColumn_[year_added].png" alt=""/>
+												<p>
+													I select the colum [date_added]. Next I go to the <i>Add Column</i> tab, then to Date section and select Year.
+													This will return the year from the date column. 
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Column type should have only 2 values</h2>
+												<img src="Excel Netflix Project/CloseAndLoad.png" alt=""/>
+											</section>
+										</div>
+
+										<div class="col-6 col-12-medium">
+											<section>
+												<h2>Seems I have a wrong value</h2>
+												<img src="Excel Netflix Project/DataHasBeenLoaded.png" alt=""/>
+											</section>
+										</div>
+										<p>
+											After I finished with the cleaning of the data, it is time to load it into Excel.
+											<i>Home</i> tab -> <i>Close & Load</i>
+
+											<br>We can verify that in excel , going to the <i>Data</i> tab and selecting <i>Queries & Connections</i>
+										</p>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>Creating the required Pivots</h2>
+												<img src="Excel Netflix Project/Create_Pivots_I.png" alt=""/>
+												<p>
+													On a different sheet I create the required Pivots.
+													
+													After finishing, I move on to the last step, which is the creation of the Dashboard
+												</p>
+											</section>
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<h2>Dashboard</h2>
+												<img src="Excel Netflix Project/Dashboard_I.png" alt=""/>
+												<p>
+													The upper part of the Dashboard has static data. It will update only after a refresh and if only the raw data changes.
+													We are presenting data based on different groupings (by year_added, by rating, by duration, by categories, by countries and by seasons)
+												</p>
+											</section>
+										</div>
+									</div>
+
+									div class="row">
+										<div class="col-12 col-12-medium">
+											<section>
+												<img src="Excel Netflix Project/Dashboard_II.png" alt=""/>
+												<p>
+													This last part of the report lets the user of the Dashboard search for movies (based on 4 diferent slicers)
+													<br>
+													The movies are shown here based on a OFFSET formula in a cell. <i>=OFFSET(Pivots!AA3,,,COUNTA(Pivots!AA:AA)-2,1)</i>
+												</p>
+											</section>
+										</div>
+									</div>
+
+								</article>
+							</div>
+
+					</div>
+				</div>
+
+
+
+			<!-- Footer -->
+			<section id="footer" class="wrapper">
+				<div class="title">Contact Info</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-12-medium">
+
+							<!-- Contact -->
+								<section class="container-fluid">
+									<div class="row">
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-comment">Social</h3>
+												<p>
+													<a href="https://www.linkedin.com/in/-alexandru-nastase/">LinkedIn Account</a><br />
+													<a href="https://github.com/DataInsightsWithAlex">GitHub</a>
+												</p>
+											</section>
+										</div>
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-envelope">Email</h3>
+												<p>
+													<a href="#">it.alnastase@gmail.com</a>
+													<a href="#">data.insights.with.alex@gmail.com</a>
+												</p>
+											</section>
+										</div>
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-phone">Phone</h3>
+												<p>
+													0746 981 753
+												</p>
+											</section>
+										</div>
+									</div>
+								</section>
+
+						</div>
+					</div>
+					<div id="copyright">
+						<ul>
+							<li>&copy; Alexandru Nastase</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
