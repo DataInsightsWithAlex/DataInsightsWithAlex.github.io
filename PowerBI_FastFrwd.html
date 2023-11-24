@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Excel</title>
+		<title>Power BI - Fast Forward Dashboard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,18 +19,24 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<h1><a href="Excel.html">Main Excel Page</a></h1>
-							<!--<p>The raw data is from <a href="https://www.kaggle.com/datasets/ariyoomotade/netflix-data-cleaning-analysis-and-visualization">Kaggle</a></p>-->
-						</div>
+							<h1><a href="PowerBI_FastFrwd.html">Call Center Data</a></h1>
+    					</div>
 
 					<!-- Nav -->
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li class="current"> <a href="Excel.html">Excel Projects</a></li>
-							<li><a href="PowerBI.html">Power BI Projects</a></li>
-							<li><a href="#">SQL Projects</a></li>
-							<li><a href="aboutme.html">About Me</a></li>
+							<li> <a href="Excel.html">Excel Projects</a></li>
+							<li>
+								<a href="PowerBI.html">Power BI Projects</a>
+							</li>
+							<li>
+								<a href="#">SQL Projects</a>
+							</li>
+							<li>
+								<a href="aboutme.html">About Me</a>
+							</li>
+							<!--<li><a href="ExcelProjects.html">Project 3</a></li>-->
 						</ul>
 					</nav>
 
@@ -38,37 +44,40 @@
 
 			<!-- Main -->
 				<div id="main" class="wrapper style2">
-					<div class="title">All The Projects</div>
-					
-
-						<!-- Content -->
-						<div style="display: flex; justify-content: center; flex-wrap: wrap;">
-							<div style="flex: 1;">
-							  
-								<a href="ExcelNetflixProj.html">
-								<img src="images/ExcelMainPage/Thumbnails/NetflixDashThumb.png" style="width: 99.5%; height: auto;" alt="Image 1" />
-								</a>
+					<div class="title">Details</div>
+					<div class="container">
+						<div id="content">
+							<article class="box post">
+								<hr>
+									<header class="style2">
+										<p>
+											<b>Data Source:</b> <a href="https://www.kaggle.com/datasets/satvicoder/call-center-data">Kaggle</a><br>
+											<b>Data Cleaning:</b> No need, dataset is already cleaned <br>
+											<b>Data Transformation:</b> Based on the index I created a date column <br>
+											<b>Data Visualisation:</b> Created Dashboard in Power BI <br>
+											For the selection of the color codes, I used <a href="https://colorhunt.co/">Color Hunt</a> 
+											<h2>Key Info:</h2>
+											<ul>
+												<li>
+													As we have aggregated data , please make sure you are not calculating avg. of averages and instead you are calculating Weighted avg.
+												</li>
+												<li>
+													No need to create multiple charts to show data by Date, Week and Month. Using a field parameter makes things a lot cleaner and easier.
+												</li>
+											</ul>
+										</p>	
+									</header>
+								<hr>
+								<div id="iframe-wrapper" >
+								<iframe width="600" height="400" src="https://www.youtube.com/embed/ImyXRabfqyo?si=1c-DFFHR-QGix6d5" title="Power BI Dashboard" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" style="align-self: center; -ms-grid-row-align: center; align-content: center; align-items: center; -ms-grid-column-align: center;" allowfullscreen></iframe>
+								</div>
 							
-							</div>
-							<div style="flex: 1;">
-								<a href="ExcelInsurance_I.html">
-							  	<img src="images/ExcelMainPage/Thumbnails/InsuranceThumb1.png" style="width: 99.5%; height: auto;" alt="Image 2" />
-								</a>
-							</div>
-							<div style="flex: 1;">
-								<a href="ExcelInsurance_II.html">
-							  		<img src="images/ExcelMainPage/Thumbnails/InsuranceThumb2.png" style="width: 99.5%; height: auto;" alt="Image 3" />
-								</a>
-							</div>
-						  </div>
-						  
-						  <style>
-							img:hover {
-							  opacity: 0.7;
-							}
-						  </style>
-						  
+									
+							</article>
 						</div>
+								
+						
+					</div>
 				</div>
 
 
