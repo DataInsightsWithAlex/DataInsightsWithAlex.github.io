@@ -1,0 +1,560 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SQL Project 1</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper">
+
+					<!-- Logo -->
+						<div id="logo">
+							<h1><a href="SQL.html">AdventureWorks2017</a></h1>
+							<p>You can download the backup file from here!!!<a href="https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms#download-backup-files">learn.Microsoft.com</a></p>
+						</div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li> <a href="Excel.html">Excel Projects</a></li>
+							<li>
+								<a href="PowerBI.html">Power BI Projects</a>
+							</li>
+							<li  class="current">
+								<a href="SQL.html">SQL Projects</a>
+							</li>
+							<li>
+								<a href="aboutme.html">About Me</a>
+							</li>
+							<!--<li><a href="ExcelProjects.html">Project 3</a></li>-->
+						</ul>
+					</nav>
+
+				</section>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style2">
+					<div class="title">Details</div>
+					<div class="container">
+
+						<!-- Content -->
+							
+								<h2>What are the top 10 selling products for the year 2012
+									by Quantity ?</h2>
+									<pre>
+										<code class="language-sql">
+											select top 10
+												Product.Name,
+												YEAR(SalesOrderDetail.ModifiedDate) as 'Year',
+												SUM(OrderQty) as 'TotalQuantitySold'
+											from Sales.SalesOrderDetail
+											
+											left join Production.Product on 
+											SalesOrderDetail.ProductID=Product.ProductID
+											
+											where YEAR(SalesOrderDetail.ModifiedDate)=2012
+											
+											group by Product.Name,YEAR(SalesOrderDetail.ModifiedDate)
+											order by YEAR(SalesOrderDetail.ModifiedDate),TotalQuantitySold desc
+										</code>
+									</pre>
+									<h2>The result will be: </h2>
+									<table>
+										<tr align="center">
+										  <th>Name</th>
+										  <th>Year</th>
+										  <th>TotalQuantitySold</th>
+										</tr>
+										<tr align="center">
+										  <td>Full-Finger Gloves, L</td>
+										  <td>2012</td>
+										  <td>2380</td>
+										</tr>
+										<tr align="center">
+										  <td>Long-Sleeve Logo Jersey, L</td>
+										  <td>2012</td>
+										  <td>2113</td>
+										</tr>
+										<tr align="center">
+										  <td>AWC Logo Cap</td>
+										  <td>2012</td>
+										  <td>2048</td>
+										</tr>
+										<tr align="center">
+										  <td>Full-Finger Gloves, M</td>
+										  <td>2012</td>
+										  <td>1526</td>
+										</tr>
+										<tr align="center">
+										  <td>Sport-100 Helmet, Blue</td>
+										  <td>2012</td>
+										  <td>1519</td>
+										</tr>
+										<tr align="center">
+										  <td>Women's Tights, S</td>
+										  <td>2012</td>
+										  <td>1475</td>
+										</tr>
+										<tr align="center">
+										  <td>Women's Tights, L</td>
+										  <td>2012</td>
+										  <td>1432</td>
+										</tr>
+										<tr align="center">
+										  <td>Sport-100 Helmet, Black</td>
+										  <td>2012</td>
+										  <td>1387</td>
+										</tr>
+										<tr align="center">
+										  <td>Road-650 Red, 60</td>
+										  <td>2012</td>
+										  <td>1384</td>
+										</tr>
+										<tr align="center">
+										  <td>Road-650 Black, 52</td>
+										  <td>2012</td>
+										  <td>1362</td>
+										</tr>
+									  </table>
+
+									<hr>
+									<h2>What are the top 10 selling products for the year 2012
+										by Revenue ?</h2>
+										<pre>
+											<code class="language-sql">
+												select top 10
+													Product.Name,
+													YEAR(SalesOrderDetail.ModifiedDate) as 'Year',
+													CAST(SUM(LineTotal) AS int)  as 'Revenue'
+												from Sales.SalesOrderDetail
+												
+												left join Production.Product on 
+												SalesOrderDetail.ProductID=Product.ProductID
+												
+												where YEAR(SalesOrderDetail.ModifiedDate)=2012
+												
+												group by Product.Name,YEAR(SalesOrderDetail.ModifiedDate)
+												order by YEAR(SalesOrderDetail.ModifiedDate),Revenue desc
+												</code>
+										</pre>
+										<h2>The result will be: </h2>
+										<table>
+											<tr>
+											  <th style="text-align:center; vertical-align:middle;">Name</th>
+											  <th style="text-align:center; vertical-align:middle;">Year</th>
+											  <th style="text-align:center; vertical-align:middle;">Revenue</th>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Black, 42</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">1167802</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Black, 38</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">1142403</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Silver, 42</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">1043775</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Silver, 46</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">984010</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Road-250 Red, 44</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">973623</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Silver, 38</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">965541</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Road-250 Red, 48</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">932999</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Mountain-200 Black, 46</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">865689</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Road-250 Black, 44</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">863459</td>
+											</tr>
+											<tr>
+											  <td style="text-align:center; vertical-align:middle;">Road-150 Red, 56</td>
+											  <td style="text-align:center; vertical-align:middle;">2012</td>
+											  <td style="text-align:center; vertical-align:middle;">829442</td>
+											</tr>
+										  </table>
+
+										<hr>
+										<h2>What are the Total Sales in a specifc time frame?
+											Let's say between 2013-06-01 and 2013-06-30</h2>
+											<pre>
+												<code class="language-sql">
+													select 
+														SUM(SubTotal) as TotalSales
+													from Sales.SalesOrderHeader
+													where OrderDate >= '2013-06-01' and OrderDate <= '2013-06-30'
+												</code>
+											</pre>
+										<h2>It will return: 5081069.1319</h2>
+										<hr>
+										<h2>Who are the top 10 spending customers?</h2>
+											<pre>
+												<code class="language-sql">
+													select top 10 
+														c.CustomerID,
+														SUM(od.LineTotal) AS TotalSpent
+													from Sales.SalesOrderHeader soh
+													
+													left join Sales.Customer c ON 
+													soh.CustomerID = c.CustomerID
+													
+													left join Sales.SalesOrderDetail od ON 
+													soh.SalesOrderID = od.SalesOrderID
+													
+													group by c.CustomerID
+													order by TotalSpent desc
+												</code>
+											</pre>
+										<h2>The result will be: </h2>	
+										<table>
+											<tr>
+												<th>CustomerID</th>
+												<th>TotalSpent</th>
+											</tr>
+											<tr align="center">
+												<td>29818</td>	
+												<td>877107.192221</td>
+											</tr>
+											<tr align="center">
+												<td>29715</td>
+												<td>853849.179524</td>
+											</tr>
+											<tr align="center">
+												<td>29722</td>
+												<td>841908.770707</td>
+											</tr>
+											<tr align="center">
+												<td>30117</td>
+												<td>816755.576276</td>
+											</tr>
+											<tr align="center">
+												<td>29614</td>
+												<td>799277.895062</td>
+											</tr>
+											<tr align="center">
+												<td>29639</td>
+												<td>787773.043768</td>
+											</tr>
+											<tr align="center">
+												<td>29701</td>
+												<td>746317.529257</td>
+											</tr>
+											<tr align="center">
+												<td>29617</td>
+												<td>740985.833742</td>
+											</tr>
+											<tr align="center">
+												<td>29994</td>
+												<td>730798.713914</td>
+											</tr>
+											<tr align="center">
+												<td>29646</td>
+												<td>727272.649367</td>
+											</tr>											
+										</table>
+										<hr>
+										<h2>What is the customer distribution by country?</h2>
+										<pre>
+											<code class="language-sql">
+												SELECT 
+													sp.CountryRegionCode,
+													count(*) as CustomerCount
+												FROM [AdventureWorks2017].[Sales].[Customer]
+												
+												inner join Person.StateProvince sp on
+												Customer.TerritoryID=sp.TerritoryID
+
+												group by sp.CountryRegionCode
+												order by CustomerCount desc
+											</code>
+										</pre>
+										<h2>The result will be: </h2>
+											<table>
+											<tr align="center">
+												<th>CountryRegionCode</th>
+												<th>CustomerCount</th>
+											</tr>
+											<tr align="center">
+												<td>FR</td>
+												<td>180864</td>
+											</tr>
+											<tr align="center">
+												<td>US</td>
+												<td>60526</td>
+											</tr>
+											<tr align="center">
+												<td>CA</td>
+												<td>23283</td>
+											</tr>
+											<tr align="center">
+												<td>AU</td>
+												<td>18325</td>
+											</tr>
+											<tr align="center">
+												<td>DE</td>
+												<td>12964</td>
+											</tr>
+											<tr align="center">
+												<td>FM</td>
+												<td>3665</td>
+											</tr>
+											<tr align="center">
+												<td>MH</td>
+												<td>3665</td>
+											</tr>
+											<tr align="center">
+												<td>MP</td>
+												<td>3665</td>
+											</tr>
+											<tr align="center">
+												<td>PW</td>
+												<td>3665</td>
+											</tr>
+											<tr align="center">
+												<td>AS</td>
+												<td>3520</td>
+											</tr>
+											<tr align="center">
+												<td>GB</td>
+												<td>1991</td>
+											</tr>
+											<tr align="center">
+												<td>VI</td>
+												<td>176</td>
+											</tr>
+											</table>
+											<hr>
+
+											<h2>What are the products that we are running low on stock ? </h2>
+											<pre>
+												<code class="language-sql">
+													SELECT 
+														p.ProductID
+														,p.Name as ProductName
+														,SUM(pi.Quantity) as TotalQuantity
+													FROM [AdventureWorks2017].[Production].[Product] p
+													
+													inner join Production.ProductInventory pi on
+													p.ProductID=pi.ProductID
+													
+													group by p.ProductID,p.Name
+													having SUM(pi.Quantity) < 75
+													order by TotalQuantity desc
+												</code>
+											</pre>
+											<h2>The result will be: </h2>
+											<table>
+												<tr align="center">
+												  <th>ProductID</th>
+												  <th>ProductName</th>
+												  <th>TotalQuantity</th>
+												</tr>
+												<tr align="center">
+												  <td>842</td>
+												  <td>Touring-Panniers, Large</td>
+												  <td>72</td>
+												</tr>
+												<tr align="center">
+												  <td>855</td>
+												  <td>Men's Bib-Shorts, S</td>
+												  <td>72</td>
+												</tr>
+												<tr align="center">
+												  <td>861</td>
+												  <td>Full-Finger Gloves, S</td>
+												  <td>72</td>
+												</tr>
+												<tr align="center">
+												  <td>884</td>
+												  <td>Short-Sleeve Classic Jersey, XL</td>
+												  <td>72</td>
+												</tr>
+												<tr align="center">
+												  <td>494</td>
+												  <td>Paint - Silver</td>
+												  <td>65</td>
+												</tr>
+												<tr align="center">
+												  <td>492</td>
+												  <td>Paint - Black</td>
+												  <td>47</td>
+												</tr>
+												<tr align="center">
+												  <td>854</td>
+												  <td>Women's Tights, L</td>
+												  <td>36</td>
+												</tr>
+												<tr align="center">
+												  <td>860</td>
+												  <td>Half-Finger Gloves, L</td>
+												  <td>36</td>
+												</tr>
+												<tr align="center">
+												  <td>883</td>
+												  <td>Short-Sleeve Classic Jersey, L</td>
+												  <td>36</td>
+												</tr>
+												<tr align="center">
+												  <td>877</td>
+												  <td>Bike Wash - Dissolver</td>
+												  <td>36</td>
+												</tr>
+												<tr align="center">
+												  <td>882</td>
+												  <td>Short-Sleeve Classic Jersey, M</td>
+												  <td>0</td>
+												</tr>
+												<tr align="center">
+												  <td>876</td>
+												  <td>Hitch Rack - 4-Bike</td>
+												  <td>0</td>
+												</tr>
+												<tr align="center">
+												  <td>859</td>
+												  <td>Half-Finger Gloves, M</td>
+												  <td>0</td>
+												</tr>
+												<tr align="center">
+												  <td>853</td>
+												  <td>Women's Tights, M</td>
+												  <td>0</td>
+												</tr>
+											  </table>
+											  <hr>
+											  <h2>What is the average order value  ?</h2>
+											  <pre>
+												<code class="language-sql">
+													select 
+														AVG(TotalDue) as AvgOrderValue 
+													from Sales.SalesOrderHeader
+												</code>
+											  </pre>
+											  <h2>It will return: 3915.9951</h2>
+											  <hr>
+
+											  <h2>How many orders were placed within a particular time frame? </h2>
+											  <pre>
+												<code class="language-sql">
+													select 
+														Count(*) as TotalOrders
+													from Sales.SalesOrderHeader
+													
+													where OrderDate>='2014-02-01' and OrderDate<='2014-02-06'
+												</code>
+											  </pre>
+											  <h2>It will return: 375</h2>
+											  <hr>
+
+											  <h2>What is the average shipping duration for orders  ?</h2>
+											  <pre>
+												<code class="language-sql">
+													select
+														AVG(DATEDIFF(DAY,OrderDate,ShipDate)) as ShippingDuration
+													from Sales.SalesOrderHeader
+												</code>
+											  </pre>
+											  <h2>It will return: 7</h2>
+
+
+					</div>
+				</div>
+
+
+
+			<!-- Footer -->
+			<section id="footer" class="wrapper">
+				<div class="title">Contact Info</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-12-medium">
+
+							<!-- Contact -->
+								<section class="container-fluid">
+									<div class="row">
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-comment">Social</h3>
+												<p>
+													<a href="https://www.linkedin.com/in/-alexandru-nastase/">LinkedIn Account</a><br />
+													<a href="https://github.com/DataInsightsWithAlex">GitHub</a>
+												</p>
+											</section>
+										</div>
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-envelope">Email</h3>
+												<p>
+													<a href="#">it.alnastase@gmail.com</a>
+													<a href="#">data.insights.with.alex@gmail.com</a>
+												</p>
+											</section>
+										</div>
+										<div class="col-4 col-12-medium">
+											<section>
+												<h3 class="icon solid fa-phone">Phone</h3>
+												<p>
+													0746 981 753
+												</p>
+											</section>
+										</div>
+									</div>
+								</section>
+
+						</div>
+					</div>
+					<div id="copyright">
+						<ul>
+							<li>&copy; Alexandru Nastase</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-sql.min.js"></script>
+
+	</body>
+</html>
